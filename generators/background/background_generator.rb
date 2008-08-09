@@ -19,7 +19,7 @@ class BackgroundGenerator < Rails::Generator::Base
         m.file 'example_monitored_worker.rb', 'lib/workers/example_monitored_worker.rb'
       end
       
-      m.file 'daemons.yml', 'config/daemons.yml'
+      m.file 'background.yml', 'config/background.yml'
       m.file 'daemons',     'script/daemons'
       
       unless options[:skip_scaffold]

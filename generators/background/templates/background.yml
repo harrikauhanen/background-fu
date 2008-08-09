@@ -1,0 +1,12 @@
+# daemon parameters
+dir_mode: script
+dir: ../../tmp/pids
+multiple: false
+backtrace: true
+monitor: true
+
+# background-fu parameters
+
+# check_for_jobs_interval: 1
+# additional_conditions: worker_class = "MyWorkerClass"
+# log_name_suffix: my_worker

@@ -13,8 +13,15 @@ end
 options = YAML.load(
   ERB.new(
   IO.read(
-  File.dirname(__FILE__) + "/../../config/daemons.yml"
+  File.dirname(__FILE__) + "/../../config/background.yml"
   )).result).with_symbols!
+
 options[:dir_mode] = options[:dir_mode].to_sym
+options[:app_name] ||= File.basename(__FILE__)
+options[:check_for_jobs_interval] ||= 5
+options[:additional_conditions] ||= ''
+options[:log_name_suffix] ||= ''
+background_params = [options[:check_for_jobs_interval], options[:additional_conditions], options[:log_name_suffix]]
+options[:ARGV] = [ARGV, '--', background_params].flatten  
 
 Daemons.run File.dirname(__FILE__) + '/background.rb', options

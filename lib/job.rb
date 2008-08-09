@@ -4,7 +4,7 @@
 class Job < ActiveRecord::Base
 
   cattr_accessor :states
-  self.states = %w(pending running finished failed)
+  self.states = %w(pending starting running finished failed)
 
   serialize :args, Array
   serialize :result
